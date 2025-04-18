@@ -1,6 +1,9 @@
 import { io } from 'https://cdn.socket.io/4.8.1/socket.io.esm.min.js';
 
-const socket = io('ws://localhost:3500');
+//const address = 'ws://localhost:3500';
+const address = 'https://stroomert.nl';
+
+const socket = io(address);
 
 const msgInput = document.querySelector('#message');
 const nameInput = document.querySelector('#name');
@@ -67,7 +70,6 @@ socket.on('activity', (name) => {
 
   // clear after 3 secs
   clearTimeout(activityTimer);
-
   activityTimer = setTimeout(() => {
     activity.textContent = '';
   }, 1000);
