@@ -1,0 +1,177 @@
+:root {
+  --list-label-bgcolor: #aaa;
+  --list-label-text-fontsize: 14px;
+  --list-label-text-color: black;
+  --list-label-border: 2px solid black;
+
+  --list-container-bgcolor: #555;
+  --list-bgcolor: black;
+  --list-item-text-fontsize: 12px;
+  --list-item-text-color: white;
+  --list-item-bgcolor: #222;
+  --list-item-hover-bgcolor: #444;
+  --list-item-active-bgcolor: white;
+  --list-item-active-color: black;
+}
+
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chat-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  background-color: #888;
+  border-top: 2px solid #ccc;
+  transition: height 0.3s ease;
+  z-index: 1000;
+  padding-left: 5px;
+}
+
+/* Minimized state */
+.chat-container.minimized {
+  height: 40px; /* or whatever height for the minimized bar */
+  overflow: hidden;
+}
+
+.chat-lobby,
+.chat-roomlist,
+.chat-userlist,
+.chat-messages,
+.chat-input {
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Room list */
+.chat-lobby,
+.chat-roomlist,
+.chat-userlist,
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  background-color: var(--list-bgcolor);
+  overflow-y: auto;
+  background-color: var(--list-container-bgcolor);
+  border-radius: 5px;
+  margin: 5px;
+  margin-left: 0px;
+  user-select: none;
+}
+
+.chat-messages {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.chat-lobby,
+.chat-userlist {
+  overflow-y: auto;
+}
+
+.chat-lobby p,
+.chat-roomlist p,
+.chat-userlist p,
+.chat-messages p {
+  background-color: var(--list-label-bgcolor);
+  color: var(--list-label-text-color);
+  font-size: var(--list-label-text-fontsize);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top: var(--list-label-border);
+  border-left: var(--list-label-border);
+  border-right: var(--list-label-border);
+  width: 60px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-left: 6px;
+  padding-bottom: 2px;
+}
+
+.chat-messages p {
+  width: 80px;
+}
+
+.chat-lobby ul,
+.chat-roomlist ul,
+.chat-userlist ul,
+.chat-messages ul {
+  background-color: var(--list-bgcolor);
+  color: var(--list-item-text-color);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+  height: 254px;
+}
+
+.chat-lobby ul li,
+.chat-roomlist ul li,
+.chat-userlist ul li,
+.chat-messages ul li {
+  background-color: var(--list-item-bgcolor);
+  margin: 4px 4px 4px 4px;
+  padding: 2px;
+  font-size: var(--list-item-text-fontsize);
+  cursor: pointer;
+}
+
+.chat-roomlist ul li:hover,
+.chat-userlist ul li:hover {
+  background-color: var(--list-item-hover-bgcolor);
+}
+
+.chat-roomlist ul li:active,
+.chat-userlist ul li:active {
+  background-color: var(--list-item-active-bgcolor);
+  color: var(--list-item-active-color);
+}
+
+.chat-messages {
+  background-color: #999;
+  border: 1px solid black;
+}
+
+/*
+.chat-messages textarea {
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-top: 5px;
+  padding: 0;
+  height: 100%;
+  background-color: red;
+}
+
+.chat-input {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: yellow;
+  border-top: 1px solid #ccc;
+  bottom: 0;
+  margin-top: 110px;
+} */
+
+/* Optional: button to minimize */
+.minimize-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}
